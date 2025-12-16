@@ -3,7 +3,7 @@
 ################################################################################
 
 /Controllers/.vs
-/API_Gateway/.vs
+/ApiGateway/.vs
 /.vs
 /OrderService/.vs
 /ProductService/.vs
@@ -21,10 +21,10 @@
 /OrderService/Controllers/obj
 /OrderService/Domain/obj
 /OrderService/Infrastructure/obj
-/API_Gateway/Controllers/obj
-/API_Gateway/Application/obj
-/API_Gateway/Domain/obj
-/API_Gateway/Infrastructure/obj
+/ApiGateway/Controllers/obj
+/ApiGateway/Application/obj
+/ApiGateway/Domain/obj
+/ApiGateway/Infrastructure/obj
 
 /UserService/Controllers/bin
 /UserService/Application/bin
@@ -38,7 +38,7 @@
 /OrderService/Controllers/bin
 /OrderService/Domain/bin
 /OrderService/Infrastructure/bin
-/API_Gateway/Controllers/bin
-/API_Gateway/Application/bin
-/API_Gateway/Domain/bin
-/API_Gateway/Infrastructure/bin
+/ApiGateway/Controllers/bin
+/ApiGateway/Application/bin
+/ApiGateway/Domain/bin
+/ApiGateway/Infrastructure/bin
