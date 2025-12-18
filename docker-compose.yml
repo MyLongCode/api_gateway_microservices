@@ -1,12 +1,22 @@
-﻿version: '3.8'
+version: '3.8'
 
 services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
   user-service:
     build:
       context: UserService
       dockerfile: Controllers/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - REDIS_CONNECTION=redis:6379
+    depends_on:
+      - redis
 
   product-service:
     build:
@@ -14,6 +24,9 @@ services:
       dockerfile: Controllers/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - REDIS_CONNECTION=redis:6379
+    depends_on:
+      - redis
 
   order-service:
     build:
@@ -21,16 +34,24 @@ services:
       dockerfile: Controllers/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - REDIS_CONNECTION=redis:6379
+    depends_on:
+      - redis
 
   api-gateway:
     build:
-      context: API_Gateway
+      context: ApiGateway
       dockerfile: Controllers/Dockerfile
     ports:
       - "5000:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - REDIS_CONNECTION=redis:6379
     depends_on:
       - user-service
       - product-service
       - order-service
+      - redis
+
+volumes:
+  redis-data:
