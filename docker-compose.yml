@@ -27,7 +27,7 @@ services:
 
   api-gateway:
     build:
-      context: API_Gateway
+      context: ApiGateway
       dockerfile: Controllers/Dockerfile
     ports:
       - "5000:80"
